@@ -7,3 +7,7 @@ typechain
 #Hardhat files
 cache
 artifacts
+
+#OS
+
+.DS_Store
