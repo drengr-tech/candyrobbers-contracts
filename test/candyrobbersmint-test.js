@@ -29,8 +29,8 @@ async function getMintMessage(signer, max, address){
 const MAX_MINT_WHITELIST  = 3;
 
 describe("CandyRobbersMint", function () {
-    let cr;
-    let crMint;
+    let cr; //CandyRobers
+    let crMint; //CandyRobbersMint
 
     let owner;
     let user1;
@@ -44,16 +44,16 @@ describe("CandyRobbersMint", function () {
     beforeEach(async function () {
         await network.provider.send("hardhat_reset");
 
-        const CR = await ethers.getContractFactory("CandyRobbers"); //Plush main contract deployment
+        const CR = await ethers.getContractFactory("CandyRobbers"); //Candy robbers main contract deployment
         cr = await CR.deploy();
         [owner, user1, user2, user3, user4, user5] = await ethers.getSigners(); //Get multiple signers for merkleTree
 
-        const CR_MINT = await ethers.getContractFactory("CandyRobbersMint"); //PlushMint deployment
+        const CR_MINT = await ethers.getContractFactory("CandyRobbersMint"); //CandyRobbersMint deployment
         crMint = await CR_MINT.deploy(
             cr.address
         );
 
-        await cr.grantRole(await cr.MINTER_ROLE(), crMint.address); //Allow PlushMint to mint on Plush
+        await cr.grantRole(await cr.MINTER_ROLE(), crMint.address); //Allow CandyRobbersMint to mint on CandyRobbers
 
 
         whitelistWallet = new ethers.Wallet.createRandom();
