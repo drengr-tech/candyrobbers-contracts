@@ -25,7 +25,7 @@ contract CandyRobbersMint is Ownable, PaymentSplitter, Pausable {
 
     uint256 public saleStart = 1653418800;
 
-    uint256 minted;
+    uint256 public minted = 0;
 
     bool teamReserved = false;
 
