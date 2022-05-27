@@ -17,12 +17,12 @@ contract CandyRobbersMint is Ownable, PaymentSplitter, Pausable {
     uint256 public constant presalePrice = 0.069 ether;
 
     uint256 public maxSupply = 5000;
-    uint256 public maxMintablePerTx = 3;
+    uint256 public maxMintablePerTx = 5;
 
     address private whitelistAddress =
         0x58c7DBa0f043F5244d55D92EaA399969c59F89fA;
 
-    uint256 public saleStart = 1653418800;
+    uint256 public immutable saleStart;
 
     uint256 public minted = 0;
 
@@ -35,10 +35,11 @@ contract CandyRobbersMint is Ownable, PaymentSplitter, Pausable {
     address[] private team_ = [address(1)];
     uint256[] private teamShares_ = [100];
 
-    constructor(ICandyRobbers _candyRobbers)
+    constructor(ICandyRobbers _candyRobbers, uint256 _saleStart)
         PaymentSplitter(team_, teamShares_)
     {
         candyRobbers = _candyRobbers;
+        saleStart = _saleStart;
     }
 
     //Change address that needs to sign message

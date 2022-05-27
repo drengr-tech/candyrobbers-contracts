@@ -50,7 +50,8 @@ describe("CandyRobbersMint", function () {
 
         const CR_MINT = await ethers.getContractFactory("CandyRobbersMint"); //CandyRobbersMint deployment
         crMint = await CR_MINT.deploy(
-            cr.address
+            cr.address,
+            1653764400
         );
 
         await cr.grantRole(await cr.MINTER_ROLE(), crMint.address); //Allow CandyRobbersMint to mint on CandyRobbers
