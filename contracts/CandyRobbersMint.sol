@@ -32,8 +32,8 @@ contract CandyRobbersMint is Ownable, PaymentSplitter, Pausable {
 
     mapping(address => uint256) public tokensMinted;
 
-    address[] private team_ = [address(1)];
-    uint256[] private teamShares_ = [100];
+    address[] private team_ = [0x9e9bc682f651c99BA0d7Eeb93eE64a2AD07CE112, 0x11412a492e7ab9F672c83e9586245cE6a70E4388];
+    uint256[] private teamShares_ = [97,3];
 
     constructor(ICandyRobbers _candyRobbers, uint256 _saleStart)
         PaymentSplitter(team_, teamShares_)
